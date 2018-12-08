@@ -1,0 +1,3 @@
+﻿  SR_PCH.cpp
+d:\github\vs_project\sunrin_engine_d3d11\sunrin_engine_d3d11\engine\pch\sr_pch.h(63): error C2061: 구문 오류: 식별자 'fprintf'
+d:\github\vs_project\sunrin_engine_d3d11\sunrin_engine_d3d11\engine\pch\sr_pch.h(64): error C2061: 구문 오류: 식별자 'sprintf'

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\Engine">
+      <UniqueIdentifier>{96786b16-3dfd-46ca-bd54-528c8242e011}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utility">
+      <UniqueIdentifier>{6ed573d9-5048-4e34-8877-dd22ff194383}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\System">
+      <UniqueIdentifier>{1d3ff427-69e5-457e-a3da-49b4d1505cb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\System\App">
+      <UniqueIdentifier>{f3c1807c-635a-4788-8f81-4ce8f287760a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utility\Non-Copyable">
+      <UniqueIdentifier>{f5964d81-a96c-45a9-aa79-280bd089583f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utility\PCH">
+      <UniqueIdentifier>{8f4ac58f-6de0-40a1-8d0e-9705517b2179}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utility\XML">
+      <UniqueIdentifier>{bc678fb5-b6b4-4b75-af1e-0e2955abcd7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utility\XML\ProgramSetting">
+      <UniqueIdentifier>{62acf8d5-7bb4-4414-8e98-b6c3ca91af84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\System\App\Time">
+      <UniqueIdentifier>{6cb4437a-d90c-45a0-a57b-c8b0d14e1eda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utility\Log">
+      <UniqueIdentifier>{2a37ba0b-0120-48ae-bb2e-c1a5f7af3c89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\System\App\Input">
+      <UniqueIdentifier>{595bc545-92a4-4cd7-b8d4-f156b80d027f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utility\KeyCode">
+      <UniqueIdentifier>{d4b4b73c-3b32-47c0-8eac-e8143ff5e009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utility\Converter">
+      <UniqueIdentifier>{336549d4-5a60-4d5e-a934-2413d0000835}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utility\ExternalLibrary">
+      <UniqueIdentifier>{3f749928-d70d-43e8-bc14-4a0d4a07718a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utility\ExternalLibrary\TinyXML2">
+      <UniqueIdentifier>{577cc5ff-803d-4819-9627-0f3086c99035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Utility\ExternalLibrary\Vorbis">
+      <UniqueIdentifier>{29b47fad-f6e6-440b-871e-720636425c66}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SR_Log.cpp">
+      <Filter>소스 파일\Engine\Utility\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SR_App.cpp">
+      <Filter>소스 파일\Engine\System\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SR_Converter.cpp">
+      <Filter>소스 파일\Engine\Utility\Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SR_Input.cpp">
+      <Filter>소스 파일\Engine\System\App\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SR_KeyCode.cpp">
+      <Filter>소스 파일\Engine\Utility\KeyCode</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SR_NonCopyable.cpp">
+      <Filter>소스 파일\Engine\Utility\Non-Copyable</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SR_ProgramSettingXML.cpp">
+      <Filter>소스 파일\Engine\Utility\XML\ProgramSetting</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SR_Time.cpp">
+      <Filter>소스 파일\Engine\System\App\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SR_XML.cpp">
+      <Filter>소스 파일\Engine\Utility\XML</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ExternalLibrary\TinyXML2\tinyxml2.cpp">
+      <Filter>소스 파일\Engine\Utility\ExternalLibrary\TinyXML2</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\PCH\SR_PCH.cpp">
+      <Filter>소스 파일\Engine\Utility\PCH</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine\SR_Log.h">
+      <Filter>소스 파일\Engine\Utility\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SR_App.h">
+      <Filter>소스 파일\Engine\System\App</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SR_Converter.h">
+      <Filter>소스 파일\Engine\Utility\Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SR_Input.h">
+      <Filter>소스 파일\Engine\System\App\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SR_KeyCode.h">
+      <Filter>소스 파일\Engine\Utility\KeyCode</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SR_NonCopyable.h">
+      <Filter>소스 파일\Engine\Utility\Non-Copyable</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SR_ProgramSettingXML.h">
+      <Filter>소스 파일\Engine\Utility\XML\ProgramSetting</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SR_Time.h">
+      <Filter>소스 파일\Engine\System\App\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SR_XML.h">
+      <Filter>소스 파일\Engine\Utility\XML</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ExternalLibrary\Vorbis\include\codec.h">
+      <Filter>소스 파일\Engine\Utility\ExternalLibrary\Vorbis</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ExternalLibrary\Vorbis\include\ogg.h">
+      <Filter>소스 파일\Engine\Utility\ExternalLibrary\Vorbis</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ExternalLibrary\Vorbis\include\os_types.h">
+      <Filter>소스 파일\Engine\Utility\ExternalLibrary\Vorbis</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ExternalLibrary\Vorbis\include\vorbisfile.h">
+      <Filter>소스 파일\Engine\Utility\ExternalLibrary\Vorbis</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ExternalLibrary\TinyXML2\tinyxml2.h">
+      <Filter>소스 파일\Engine\Utility\ExternalLibrary\TinyXML2</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\PCH\SR_PCH.h">
+      <Filter>소스 파일\Engine\Utility\PCH</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
