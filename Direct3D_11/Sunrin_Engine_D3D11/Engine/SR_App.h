@@ -50,7 +50,7 @@ namespace SunrinEngine
 		bool InitializeInput();
 
 	private:
-		static std::unique_ptr<SR_App> m_instance;
+		static std::unique_ptr<SR_App> M_instance;
 
 		bool m_isWindowResized;
 		unsigned m_clientWidth;

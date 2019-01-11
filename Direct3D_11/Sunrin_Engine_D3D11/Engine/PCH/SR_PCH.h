@@ -48,6 +48,7 @@
 #include <dwrite_3.h>
 #include <dinput.h>
 #include <dsound.h>
+#include <wrl.h>
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d2d1.lib")

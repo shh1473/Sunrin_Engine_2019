@@ -31,5 +31,5 @@
 *.out
 *.app
 
-# Visual C++ cache files
-*.opendb
+# Visual cache files
+*.vs

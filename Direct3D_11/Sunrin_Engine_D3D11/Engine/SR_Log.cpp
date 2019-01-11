@@ -22,7 +22,7 @@ namespace SunrinEngine
 
 	bool SR_Log::Initialize()
 	{
-		m_file.open(L"SunrinEngine_Log.txt");
+		m_file.open(L"Log\\SunrinEngine_Log.txt");
 		m_isGood = m_file.good();
 
 		return m_isGood;

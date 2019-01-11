@@ -1,0 +1,42 @@
+#pragma once
+
+#include "SR_Vector2.h"
+#include "SR_Vector3.h"
+#include "SR_Vector4.h"
+#include "SR_Matrix3x2.h"
+#include "SR_Matrix4x4.h"
+#include "SR_Quaternion.h"
+#include "SR_Plane.h"
+#include "SR_Color.h"
+#include "SR_Ray.h"
+#include "SR_Rectangle.h"
+#include "SR_Viewport.h"
+
+namespace SunrinEngine
+{
+
+	class SR_Math
+	{
+	public:
+		static float PI() { return M_PI; }
+		static float DegToRad() { return M_DegToRad; }
+		static float RadToDeg() { return M_RadToDeg; }
+		static float Sin(float value) { return sinf(value); }
+		static float Cos(float value) { return cosf(value); }
+		static float Tan(float value) { return tanf(value); }
+		static float ASin(float value) { return asinf(value); }
+		static float ACos(float value) { return acosf(value); }
+		static float ATan1(float value) { return atanf(value); }
+		static float ATan2(float x, float y) { return atan2f(x, y); }
+
+	private:
+		explicit SR_Math();
+
+	private:
+		static const float M_PI;
+		static const float M_DegToRad;
+		static const float M_RadToDeg;
+
+	};
+
+}

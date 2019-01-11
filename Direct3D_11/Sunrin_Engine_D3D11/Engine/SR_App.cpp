@@ -5,7 +5,7 @@
 namespace SunrinEngine
 {
 
-	std::unique_ptr<SR_App> SR_App::m_instance{};
+	std::unique_ptr<SR_App> SR_App::M_instance{};
 
 	SR_App::SR_App() noexcept :
 		m_isWindowResized		{},
@@ -97,12 +97,12 @@ namespace SunrinEngine
 
 	void SR_App::CreateInstance()
 	{
-		m_instance.reset(new SR_App());
+		M_instance.reset(new SR_App());
 	}
 
 	const std::unique_ptr<SR_App> & SR_App::GetInstance() noexcept
 	{
-		return m_instance;
+		return M_instance;
 	}
 
 	bool SR_App::InitializeProgramSettingXML()
