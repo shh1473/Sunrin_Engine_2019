@@ -1,7 +1,10 @@
 #pragma once
 
 #include "SR_PCH.h"
+
 #include "SR_NonCopyable.h"
+
+#include "ExternalLibrary\TinyXML2\tinyxml2.h"
 
 namespace SunrinEngine
 {
@@ -13,7 +16,7 @@ namespace SunrinEngine
 	public:
 		explicit SR_XML() noexcept;
 
-		void Open(std::string && fileName);
+		void Open(const std::wstring & filePath);
 		void Load();
 		void Apply();
 

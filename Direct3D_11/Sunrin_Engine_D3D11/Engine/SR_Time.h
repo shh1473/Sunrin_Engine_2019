@@ -17,7 +17,8 @@ namespace SunrinEngine
 
 		unsigned GetFixedUpdateCallCount() noexcept;
 
-		const float GetDeltaTime() const noexcept { return m_deltaTime; }
+		float GetDeltaTime() const noexcept { return m_deltaTime; }
+		float GetFixedTime() const noexcept { return m_maxFixedTime; }
 
 	private:
 		float m_maxFixedTime;

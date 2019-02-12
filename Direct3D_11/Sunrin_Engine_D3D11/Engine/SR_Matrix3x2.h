@@ -14,19 +14,17 @@ namespace SunrinEngine
 			float m21, float m22,
 			float m31, float m32) noexcept;
 		explicit SR_Matrix3x2(
-			DirectX::XMFLOAT2 r1,
-			DirectX::XMFLOAT2 r2,
-			DirectX::XMFLOAT2 r3) noexcept;
+			D2D1_VECTOR_2F r1,
+			D2D1_VECTOR_2F r2,
+			D2D1_VECTOR_2F r3) noexcept;
 
 		SR_Matrix3x2(const SR_Matrix3x2 & matrix3x2) noexcept;
 		SR_Matrix3x2(SR_Matrix3x2 && matrix3x2) noexcept;
 		SR_Matrix3x2(const D2D1::Matrix3x2F & float3x2) noexcept;
 		SR_Matrix3x2(D2D1::Matrix3x2F && float3x2) noexcept;
 
-		~SR_Matrix3x2() noexcept;
-
-		bool operator==(const SR_Matrix3x2& matrix3x2) const noexcept;
-		bool operator!=(const SR_Matrix3x2& matrix3x2) const noexcept;
+		bool operator==(const SR_Matrix3x2 & matrix3x2) const noexcept;
+		bool operator!=(const SR_Matrix3x2 & matrix3x2) const noexcept;
 
 		SR_Matrix3x2 & operator=(const SR_Matrix3x2 & matrix3x2) noexcept;
 		SR_Matrix3x2 & operator=(SR_Matrix3x2 && matrix3x2) noexcept;
@@ -56,16 +54,16 @@ namespace SunrinEngine
 		const SR_Matrix3x2 GetInverse() const;
 
 	public:
-		static const SR_Matrix3x2 CreateTranslationMatrix(float x, float y);
+		static const SR_Matrix3x2 CreateTranslationMatrix(const DirectX::XMFLOAT2 & position);
 
-		static const SR_Matrix3x2 CreateRotationMatrix(float angle, float centerX, float centerY);
+		static const SR_Matrix3x2 CreateRotationMatrix(float rotation, const DirectX::XMFLOAT2 & rotationCenter);
 
-		static const SR_Matrix3x2 CreateScaleMatrix(float x, float y, float centerX, float centerY);
+		static const SR_Matrix3x2 CreateScaleMatrix(const DirectX::XMFLOAT2 & scale, const DirectX::XMFLOAT2 & scaleCenter);
 
-		static const SR_Matrix3x2 CreateSkewMatrix(float x, float y, float centerX, float centerY);
+		static const SR_Matrix3x2 CreateSkewMatrix(const DirectX::XMFLOAT2 & skew, const DirectX::XMFLOAT2 & skewCenter);
 
 	public:
-		static const SR_Matrix3x2 M_Identity;
+		static const SR_Matrix3x2 m_IDENTITY;
 
 		union
 		{
@@ -76,6 +74,8 @@ namespace SunrinEngine
 				float m_31, m_32;
 
 			};
+
+			float m_array[3][2];
 
 			D2D1::Matrix3x2F m_float3x2;
 

@@ -5,9 +5,9 @@ namespace SunrinEngine
 {
 
 	SR_Time::SR_Time() noexcept :
-		m_maxFixedTime	{},
-		m_nowFixedTime	{},
-		m_deltaTime		{},
+		m_maxFixedTime	{ 0.0f },
+		m_nowFixedTime	{ 0.0f },
+		m_deltaTime		{ 0.0f },
 		m_curTimePoint	{},
 		m_oldTimePoint	{},
 		m_duration		{}
@@ -18,6 +18,9 @@ namespace SunrinEngine
 	void SR_Time::Initialize() noexcept
 	{
 		m_maxFixedTime = 1.0f / 50.0f;
+
+		m_curTimePoint = std::chrono::steady_clock::now();
+		m_oldTimePoint = std::chrono::steady_clock::now();
 	}
 
 	void SR_Time::Update()
@@ -31,7 +34,7 @@ namespace SunrinEngine
 
 	unsigned SR_Time::GetFixedUpdateCallCount() noexcept
 	{
-		static unsigned count{};
+		static unsigned count{ 0 };
 
 		count = 0;
 

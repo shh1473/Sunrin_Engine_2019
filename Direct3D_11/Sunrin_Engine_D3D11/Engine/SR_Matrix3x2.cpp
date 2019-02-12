@@ -1,10 +1,11 @@
 #include "SR_PCH.h"
+
 #include "SR_Matrix3x2.h"
 
 namespace SunrinEngine
 {
 
-	const SR_Matrix3x2 SR_Matrix3x2::M_Identity{
+	const SR_Matrix3x2 SR_Matrix3x2::m_IDENTITY{
 		1.0f, 0.0f,
 		0.0f, 1.0f,
 		0.0f, 0.0f };
@@ -31,9 +32,9 @@ namespace SunrinEngine
 	}
 
 	SR_Matrix3x2::SR_Matrix3x2(
-		DirectX::XMFLOAT2 r1,
-		DirectX::XMFLOAT2 r2,
-		DirectX::XMFLOAT2 r3) noexcept :
+		D2D1_VECTOR_2F r1,
+		D2D1_VECTOR_2F r2,
+		D2D1_VECTOR_2F r3) noexcept :
 		m_float3x2{
 		r1.x, r1.y,
 		r2.x, r2.y,
@@ -66,25 +67,20 @@ namespace SunrinEngine
 
 	}
 
-	SR_Matrix3x2::~SR_Matrix3x2() noexcept
-	{
-
-	}
-
 	bool SR_Matrix3x2::operator==(const SR_Matrix3x2 & matrix3x2) const noexcept
 	{
 		return
-			(m_float3x2._11 == matrix3x2.m_float3x2._12) &&
-			(m_float3x2._21 == matrix3x2.m_float3x2._22) &&
-			(m_float3x2._31 == matrix3x2.m_float3x2._32);
+			(m_float3x2._11 == matrix3x2.m_float3x2._11) && (m_float3x2._12 == matrix3x2.m_float3x2._12) &&
+			(m_float3x2._21 == matrix3x2.m_float3x2._21) && (m_float3x2._22 == matrix3x2.m_float3x2._22) &&
+			(m_float3x2._31 == matrix3x2.m_float3x2._31) && (m_float3x2._32 == matrix3x2.m_float3x2._32);
 	}
 
 	bool SR_Matrix3x2::operator!=(const SR_Matrix3x2 & matrix3x2) const noexcept
 	{
 		return
-			(m_float3x2._11 != matrix3x2.m_float3x2._12) ||
-			(m_float3x2._21 != matrix3x2.m_float3x2._22) ||
-			(m_float3x2._31 != matrix3x2.m_float3x2._32);
+			(m_float3x2._11 != matrix3x2.m_float3x2._11) || (m_float3x2._12 != matrix3x2.m_float3x2._12) ||
+			(m_float3x2._21 != matrix3x2.m_float3x2._21) || (m_float3x2._22 != matrix3x2.m_float3x2._22) ||
+			(m_float3x2._31 != matrix3x2.m_float3x2._31) || (m_float3x2._32 != matrix3x2.m_float3x2._32);
 	}
 
 	SR_Matrix3x2 & SR_Matrix3x2::operator=(const SR_Matrix3x2 & matrix3x2) noexcept
@@ -288,46 +284,46 @@ namespace SunrinEngine
 		return std::move(mat3x2);
 	}
 
-	const SR_Matrix3x2 SR_Matrix3x2::CreateTranslationMatrix(float x, float y)
+	const SR_Matrix3x2 SR_Matrix3x2::CreateTranslationMatrix(const DirectX::XMFLOAT2 & position)
 	{
 		SR_Matrix3x2 mat3x2;
 
-		mat3x2.m_float3x2._31 = x;
-		mat3x2.m_float3x2._32 = y;
+		mat3x2.m_float3x2._31 = position.x;
+		mat3x2.m_float3x2._32 = position.y;
 
 		return std::move(mat3x2);
 	}
 
-	const SR_Matrix3x2 SR_Matrix3x2::CreateRotationMatrix(float angle, float centerX, float centerY)
+	const SR_Matrix3x2 SR_Matrix3x2::CreateRotationMatrix(float rotation, const DirectX::XMFLOAT2 & rotationCenter)
 	{
-		D2D1_POINT_2F center{ centerX, centerY };
+		D2D1_POINT_2F center{ rotationCenter.x, rotationCenter.y };
 
 		SR_Matrix3x2 mat3x2;
 
-		D2D1MakeRotateMatrix(angle, std::move(center), &mat3x2.m_float3x2);
+		D2D1MakeRotateMatrix(rotation, std::move(center), &mat3x2.m_float3x2);
 
 		return std::move(mat3x2);
 	}
 
-	const SR_Matrix3x2 SR_Matrix3x2::CreateScaleMatrix(float x, float y, float centerX, float centerY)
+	const SR_Matrix3x2 SR_Matrix3x2::CreateScaleMatrix(const DirectX::XMFLOAT2 & scale, const DirectX::XMFLOAT2 & scaleCenter)
 	{
 		SR_Matrix3x2 mat3x2;
 
-		mat3x2.m_float3x2._11 = x;
-		mat3x2.m_float3x2._22 = y;
-		mat3x2.m_float3x2._31 = centerX - x * centerX;
-		mat3x2.m_float3x2._32 = centerY - y * centerY;
+		mat3x2.m_float3x2._11 = scale.x;
+		mat3x2.m_float3x2._22 = scale.y;
+		mat3x2.m_float3x2._31 = scaleCenter.x - scale.x * scaleCenter.x;
+		mat3x2.m_float3x2._32 = scaleCenter.y - scale.y * scaleCenter.y;
 
 		return std::move(mat3x2);
 	}
 
-	const SR_Matrix3x2 SR_Matrix3x2::CreateSkewMatrix(float x, float y, float centerX, float centerY)
+	const SR_Matrix3x2 SR_Matrix3x2::CreateSkewMatrix(const DirectX::XMFLOAT2 & skew, const DirectX::XMFLOAT2 & skewCenter)
 	{
-		D2D1_POINT_2F center{ centerX, centerY };
+		D2D1_POINT_2F center{ skewCenter.x, skewCenter.y };
 
 		SR_Matrix3x2 mat3x2;
 
-		D2D1MakeSkewMatrix(x, y, std::move(center), &mat3x2.m_float3x2);
+		D2D1MakeSkewMatrix(skew.x, skew.y, std::move(center), &mat3x2.m_float3x2);
 
 		return std::move(mat3x2);
 	}

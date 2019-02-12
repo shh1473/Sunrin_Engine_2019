@@ -8,15 +8,13 @@ namespace SunrinEngine
 	class SR_Vector2
 	{
 	public:
-		constexpr explicit SR_Vector2() noexcept;
-		constexpr explicit SR_Vector2(float x, float y) noexcept;
+		explicit SR_Vector2() noexcept;
+		explicit SR_Vector2(float x, float y) noexcept;
 
-		constexpr SR_Vector2(const SR_Vector2 & vector2) noexcept;
-		constexpr SR_Vector2(SR_Vector2 && vector2) noexcept;
-		constexpr SR_Vector2(const DirectX::XMFLOAT2 & float2) noexcept;
-		constexpr SR_Vector2(DirectX::XMFLOAT2 && float2) noexcept;
-
-		~SR_Vector2() noexcept;
+		SR_Vector2(const SR_Vector2 & vector2) noexcept;
+		SR_Vector2(SR_Vector2 && vector2) noexcept;
+		SR_Vector2(const DirectX::XMFLOAT2 & float2) noexcept;
+		SR_Vector2(DirectX::XMFLOAT2 && float2) noexcept;
 
 		bool operator==(const SR_Vector2 & vector2) const;
 		bool operator!=(const SR_Vector2 & vector2) const;
@@ -86,10 +84,10 @@ namespace SunrinEngine
 		static const SR_Vector2 TransformNormal(const SR_Vector2 & vector2, const DirectX::XMFLOAT4X4 & matrix);
 
 	public:
-		static const SR_Vector2 M_Zero;
-		static const SR_Vector2 M_One;
-		static const SR_Vector2 M_UnitX;
-		static const SR_Vector2 M_UnitY;
+		static const SR_Vector2 m_ZERO;
+		static const SR_Vector2 m_ONE;
+		static const SR_Vector2 m_UNIT_X;
+		static const SR_Vector2 m_UNIT_Y;
 
 		union
 		{
@@ -99,6 +97,8 @@ namespace SunrinEngine
 				float m_y;
 
 			};
+
+			float m_array[2];
 
 			DirectX::XMFLOAT2 m_float2;
 

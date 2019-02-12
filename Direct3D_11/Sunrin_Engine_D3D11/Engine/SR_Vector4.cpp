@@ -1,52 +1,48 @@
 #include "SR_PCH.h"
+
 #include "SR_Vector4.h"
 
 namespace SunrinEngine
 {
 
-	const SR_Vector4 SR_Vector4::M_Zero		{ 0.0f, 0.0f, 0.0f, 0.0f };
-	const SR_Vector4 SR_Vector4::M_One		{ 1.0f, 1.0f, 1.0f, 1.0f };
-	const SR_Vector4 SR_Vector4::M_UnitX	{ 1.0f, 0.0f, 0.0f, 0.0f };
-	const SR_Vector4 SR_Vector4::M_UnitY	{ 0.0f, 1.0f, 0.0f, 0.0f };
-	const SR_Vector4 SR_Vector4::M_UnitZ	{ 0.0f, 0.0f, 1.0f, 0.0f };
-	const SR_Vector4 SR_Vector4::M_UnitW	{ 0.0f, 0.0f, 0.0f, 1.0f };
+	const SR_Vector4 SR_Vector4::m_ZERO		{ 0.0f, 0.0f, 0.0f, 0.0f };
+	const SR_Vector4 SR_Vector4::m_ONE		{ 1.0f, 1.0f, 1.0f, 1.0f };
+	const SR_Vector4 SR_Vector4::m_UNIT_X	{ 1.0f, 0.0f, 0.0f, 0.0f };
+	const SR_Vector4 SR_Vector4::m_UNIT_Y	{ 0.0f, 1.0f, 0.0f, 0.0f };
+	const SR_Vector4 SR_Vector4::m_UNIT_Z	{ 0.0f, 0.0f, 1.0f, 0.0f };
+	const SR_Vector4 SR_Vector4::m_UNIT_W	{ 0.0f, 0.0f, 0.0f, 1.0f };
 
-	constexpr SR_Vector4::SR_Vector4() noexcept :
+	SR_Vector4::SR_Vector4() noexcept :
 		m_float4{ 0.0f, 0.0f, 0.0f, 0.0f }
 	{
 
 	}
 
-	constexpr SR_Vector4::SR_Vector4(float x, float y, float z, float w) noexcept :
+	SR_Vector4::SR_Vector4(float x, float y, float z, float w) noexcept :
 		m_float4{ x, y, z, w }
 	{
 
 	}
 
-	constexpr SR_Vector4::SR_Vector4(const SR_Vector4 & vector4) noexcept :
+	SR_Vector4::SR_Vector4(const SR_Vector4 & vector4) noexcept :
 		m_float4{ vector4.m_float4 }
 	{
 
 	}
 
-	constexpr SR_Vector4::SR_Vector4(SR_Vector4 && vector4) noexcept :
+	SR_Vector4::SR_Vector4(SR_Vector4 && vector4) noexcept :
 		m_float4{ std::move(vector4.m_float4) }
 	{
 	}
 
-	constexpr SR_Vector4::SR_Vector4(const DirectX::XMFLOAT4 & float4) noexcept :
+	SR_Vector4::SR_Vector4(const DirectX::XMFLOAT4 & float4) noexcept :
 		m_float4{ float4 }
 	{
 
 	}
 
-	constexpr SR_Vector4::SR_Vector4(DirectX::XMFLOAT4 && float4) noexcept :
+	SR_Vector4::SR_Vector4(DirectX::XMFLOAT4 && float4) noexcept :
 		m_float4{ std::move(float4) }
-	{
-
-	}
-
-	SR_Vector4::~SR_Vector4() noexcept
 	{
 
 	}

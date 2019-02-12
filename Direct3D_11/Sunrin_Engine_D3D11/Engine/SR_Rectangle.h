@@ -8,15 +8,13 @@ namespace SunrinEngine
 	class SR_Rectangle
 	{
 	public:
-		constexpr explicit SR_Rectangle() noexcept;
-		constexpr explicit SR_Rectangle(long left, long top, long right, long bottom) noexcept;
+		explicit SR_Rectangle() noexcept;
+		explicit SR_Rectangle(long left, long top, long right, long bottom) noexcept;
 
-		constexpr SR_Rectangle(const SR_Rectangle & rectangle) noexcept;
-		constexpr SR_Rectangle(SR_Rectangle && rectangle) noexcept;
-		constexpr SR_Rectangle(const D3D11_RECT & rect) noexcept;
-		constexpr SR_Rectangle(D3D11_RECT && rect) noexcept;
-
-		~SR_Rectangle() noexcept;
+		SR_Rectangle(const SR_Rectangle & rectangle) noexcept;
+		SR_Rectangle(SR_Rectangle && rectangle) noexcept;
+		SR_Rectangle(const D3D11_RECT & rect) noexcept;
+		SR_Rectangle(D3D11_RECT && rect) noexcept;
 
 		bool operator==(const SR_Rectangle & rectangle) const noexcept;
 		bool operator!=(const SR_Rectangle & rectangle) const noexcept;

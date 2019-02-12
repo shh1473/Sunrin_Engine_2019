@@ -1,49 +1,45 @@
 #include "SR_PCH.h"
+
 #include "SR_Vector2.h"
 
 namespace SunrinEngine
 {
 
-	const SR_Vector2 SR_Vector2::M_Zero		{ 0.0f, 0.0f };
-	const SR_Vector2 SR_Vector2::M_One		{ 1.0f, 1.0f };
-	const SR_Vector2 SR_Vector2::M_UnitX	{ 1.0f, 0.0f };
-	const SR_Vector2 SR_Vector2::M_UnitY	{ 0.0f, 1.0f };
+	const SR_Vector2 SR_Vector2::m_ZERO		{ 0.0f, 0.0f };
+	const SR_Vector2 SR_Vector2::m_ONE		{ 1.0f, 1.0f };
+	const SR_Vector2 SR_Vector2::m_UNIT_X	{ 1.0f, 0.0f };
+	const SR_Vector2 SR_Vector2::m_UNIT_Y	{ 0.0f, 1.0f };
 
-	constexpr SR_Vector2::SR_Vector2() noexcept :
+	SR_Vector2::SR_Vector2() noexcept :
 		m_float2{ 0.0f, 0.0f }
 	{
 
 	}
 
-	constexpr SR_Vector2::SR_Vector2(float x, float y) noexcept :
+	SR_Vector2::SR_Vector2(float x, float y) noexcept :
 		m_float2{ x, y }
 	{
 
 	}
 
-	constexpr SR_Vector2::SR_Vector2(const SR_Vector2 & vector2) noexcept :
+	SR_Vector2::SR_Vector2(const SR_Vector2 & vector2) noexcept :
 		m_float2{ vector2.m_float2 }
 	{
 	}
 
-	constexpr SR_Vector2::SR_Vector2(SR_Vector2 && vector2) noexcept :
+	SR_Vector2::SR_Vector2(SR_Vector2 && vector2) noexcept :
 		m_float2{ std::move(vector2.m_float2) }
 	{
 	}
 
-	constexpr SR_Vector2::SR_Vector2(const DirectX::XMFLOAT2 & float2) noexcept :
+	SR_Vector2::SR_Vector2(const DirectX::XMFLOAT2 & float2) noexcept :
 		m_float2{ float2 }
 	{
 
 	}
 
-	constexpr SR_Vector2::SR_Vector2(DirectX::XMFLOAT2 && float2) noexcept :
+	SR_Vector2::SR_Vector2(DirectX::XMFLOAT2 && float2) noexcept :
 		m_float2{ std::move(float2) }
-	{
-
-	}
-
-	SR_Vector2::~SR_Vector2() noexcept
 	{
 
 	}

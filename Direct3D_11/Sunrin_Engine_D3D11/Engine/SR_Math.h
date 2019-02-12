@@ -1,16 +1,6 @@
 #pragma once
 
-#include "SR_Vector2.h"
-#include "SR_Vector3.h"
-#include "SR_Vector4.h"
-#include "SR_Matrix3x2.h"
-#include "SR_Matrix4x4.h"
-#include "SR_Quaternion.h"
-#include "SR_Plane.h"
-#include "SR_Color.h"
-#include "SR_Ray.h"
-#include "SR_Rectangle.h"
-#include "SR_Viewport.h"
+#include "SR_PCH.h"
 
 namespace SunrinEngine
 {
@@ -30,7 +20,7 @@ namespace SunrinEngine
 		static float ATan2(float x, float y) { return atan2f(x, y); }
 
 	private:
-		explicit SR_Math();
+		explicit SR_Math() noexcept;
 
 	private:
 		static const float M_PI;

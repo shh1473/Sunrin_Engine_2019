@@ -8,15 +8,13 @@ namespace SunrinEngine
 	class SR_Vector4
 	{
 	public:
-		constexpr explicit SR_Vector4() noexcept;
-		constexpr explicit SR_Vector4(float x, float y, float z, float w) noexcept;
+		explicit SR_Vector4() noexcept;
+		explicit SR_Vector4(float x, float y, float z, float w) noexcept;
 
-		constexpr SR_Vector4(const SR_Vector4 & vector4) noexcept;
-		constexpr SR_Vector4(SR_Vector4 && vector4) noexcept;
-		constexpr SR_Vector4(const DirectX::XMFLOAT4 & float4) noexcept;
-		constexpr SR_Vector4(DirectX::XMFLOAT4 && float4) noexcept;
-
-		~SR_Vector4() noexcept;
+		SR_Vector4(const SR_Vector4 & vector4) noexcept;
+		SR_Vector4(SR_Vector4 && vector4) noexcept;
+		SR_Vector4(const DirectX::XMFLOAT4 & float4) noexcept;
+		SR_Vector4(DirectX::XMFLOAT4 && float4) noexcept;
 
 		bool operator==(const SR_Vector4 & vector4) const;
 		bool operator!=(const SR_Vector4 & vector4) const;
@@ -84,12 +82,12 @@ namespace SunrinEngine
 		static const SR_Vector4 Transform(const SR_Vector4 & vector4, const DirectX::XMFLOAT4X4 & float4x4);
 
 	public:
-		static const SR_Vector4 M_Zero;
-		static const SR_Vector4 M_One;
-		static const SR_Vector4 M_UnitX;
-		static const SR_Vector4 M_UnitY;
-		static const SR_Vector4 M_UnitZ;
-		static const SR_Vector4 M_UnitW;
+		static const SR_Vector4 m_ZERO;
+		static const SR_Vector4 m_ONE;
+		static const SR_Vector4 m_UNIT_X;
+		static const SR_Vector4 m_UNIT_Y;
+		static const SR_Vector4 m_UNIT_Z;
+		static const SR_Vector4 m_UNIT_W;
 
 		union
 		{
@@ -101,6 +99,8 @@ namespace SunrinEngine
 				float m_w;
 
 			};
+
+			float m_array[4];
 
 			DirectX::XMFLOAT4 m_float4;
 

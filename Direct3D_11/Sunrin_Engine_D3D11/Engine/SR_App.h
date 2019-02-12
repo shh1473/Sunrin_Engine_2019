@@ -5,6 +5,12 @@
 #include "SR_Log.h"
 #include "SR_Time.h"
 #include "SR_Input.h"
+#include "SR_Graphic.h"
+#include "SR_Sound.h"
+#include "SR_Scene.h"
+
+#define SR_WINDOW_BORDER_LENGTH_X 16;
+#define SR_WINDOW_BORDER_LENGTH_Y 39;
 
 namespace SunrinEngine
 {
@@ -20,19 +26,25 @@ namespace SunrinEngine
 
 		bool DoFrameMove();
 
-		//bool ResizeWindow(unsigned width, unsigned height);
+		bool ChangeResolution(unsigned width, unsigned height);
 
 		void HandleMessage(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
 
+		unsigned GetWindowWidth() const noexcept { return m_windowWidth; }
+		unsigned GetWindowHeight() const noexcept { return m_windowHeight; }
 		unsigned GetClientWidth() const noexcept { return m_clientWidth; }
 		unsigned GetClientHeight() const noexcept { return m_clientHeight; }
 		float GetCenterWidth() const noexcept { return m_centerWidth; }
 		float GetCenterHeight() const noexcept { return m_centerHeight; }
 		HWND GetWindowHandle() const noexcept { return m_windowHandle; }
 		HINSTANCE GetWindowInstanceHandle() const noexcept { return m_windowInstanceHandle; }
+		SR_ProgramSettingXML & GetProgramSettingXML() noexcept { return m_programSettingXML; }
 		SR_Log & GetLog() noexcept { return m_log; }
 		SR_Time & GetTime() noexcept { return m_time; }
 		SR_Input & GetInput() noexcept { return m_input; }
+		SR_Graphic & GetGraphic() noexcept { return m_graphic; }
+		SR_Sound & GetSound() noexcept { return m_sound; }
+		SR_Scene & GetScene() noexcept { return m_scene; }
 
 	public:
 		static void CreateInstance();
@@ -41,18 +53,21 @@ namespace SunrinEngine
 	private:
 		explicit SR_App() noexcept;
 
+		bool InitializeLog();
 		bool InitializeProgramSettingXML();
 		bool InitializeWindow();
-		bool InitializeDGraphic();
-		bool InitializeDSound();
-		bool InitializeLog();
 		bool InitializeTime();
 		bool InitializeInput();
+		bool InitializeGraphic();
+		bool InitializeSound();
+		bool InitializeScene();
 
 	private:
-		static std::unique_ptr<SR_App> M_instance;
+		static std::unique_ptr<SR_App> m_INSTANCE;
 
 		bool m_isWindowResized;
+		unsigned m_windowWidth;
+		unsigned m_windowHeight;
 		unsigned m_clientWidth;
 		unsigned m_clientHeight;
 		float m_centerWidth;
@@ -63,6 +78,9 @@ namespace SunrinEngine
 		SR_Log m_log;
 		SR_Time m_time;
 		SR_Input m_input;
+		SR_Graphic m_graphic;
+		SR_Sound m_sound;
+		SR_Scene m_scene;
 
 	};
 

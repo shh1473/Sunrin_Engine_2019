@@ -1,5 +1,0 @@
-<SunrinEngine_XML_Root>
-    <Window windowed="true" x="493" y="167" width="800" height="600" title="Sunrin_Engine_D3D11"/>
-    <VSync enable="false" level="0"/>
-    <Adapter index="0"/>
-</SunrinEngine_XML_Root>

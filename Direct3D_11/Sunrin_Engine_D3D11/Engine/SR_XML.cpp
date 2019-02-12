@@ -1,6 +1,8 @@
 #include "SR_PCH.h"
+
 #include "SR_XML.h"
 #include "SR_App.h"
+#include "SR_Converter.h"
 
 namespace SunrinEngine
 {
@@ -14,9 +16,9 @@ namespace SunrinEngine
 
 	}
 
-	void SR_XML::Open(std::string && fileName)
+	void SR_XML::Open(const std::wstring & filePath)
 	{
-		m_path = "Resources\\Game\\XML\\" + fileName + ".xml";
+		m_path = "Resources\\XML\\" + SR_Converter::ToAscii(filePath);
 		m_root = m_document.NewElement("SunrinEngine_XML_Root");
 
 		m_document.LinkEndChild(m_root);

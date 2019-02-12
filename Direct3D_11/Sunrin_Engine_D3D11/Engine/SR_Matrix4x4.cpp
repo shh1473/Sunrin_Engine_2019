@@ -1,16 +1,17 @@
 #include "SR_PCH.h"
+
 #include "SR_Matrix4x4.h"
 
 namespace SunrinEngine
 {
 
-	const SR_Matrix4x4 SR_Matrix4x4::M_Identity{
+	const SR_Matrix4x4 SR_Matrix4x4::m_IDENTITY{
 		1.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f, 0.0f,
 		0.0f, 0.0f, 1.0f, 0.0f,
 		0.0f, 0.0f, 0.0f, 1.0f };
 
-	constexpr SR_Matrix4x4::SR_Matrix4x4() noexcept :
+	SR_Matrix4x4::SR_Matrix4x4() noexcept :
 		m_float4x4{
 		1.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f, 0.0f,
@@ -20,7 +21,7 @@ namespace SunrinEngine
 
 	}
 
-	constexpr SR_Matrix4x4::SR_Matrix4x4(
+	SR_Matrix4x4::SR_Matrix4x4(
 		float m11, float m12, float m13, float m14,
 		float m21, float m22, float m23, float m24,
 		float m31, float m32, float m33, float m34,
@@ -34,7 +35,7 @@ namespace SunrinEngine
 
 	}
 
-	constexpr SR_Matrix4x4::SR_Matrix4x4(
+	SR_Matrix4x4::SR_Matrix4x4(
 		const DirectX::XMFLOAT4 & r1,
 		const DirectX::XMFLOAT4 & r2,
 		const DirectX::XMFLOAT4 & r3,
@@ -48,31 +49,26 @@ namespace SunrinEngine
 
 	}
 
-	constexpr SR_Matrix4x4::SR_Matrix4x4(const SR_Matrix4x4 & matrix4x4) noexcept :
+	SR_Matrix4x4::SR_Matrix4x4(const SR_Matrix4x4 & matrix4x4) noexcept :
 		m_float4x4{ matrix4x4.m_float4x4 }
 	{
 
 	}
 
-	constexpr SR_Matrix4x4::SR_Matrix4x4(SR_Matrix4x4 && matrix4x4) noexcept :
+	SR_Matrix4x4::SR_Matrix4x4(SR_Matrix4x4 && matrix4x4) noexcept :
 		m_float4x4{ std::move(matrix4x4.m_float4x4) }
 	{
 
 	}
 
-	constexpr SR_Matrix4x4::SR_Matrix4x4(const DirectX::XMFLOAT4X4 & float4x4) noexcept :
+	SR_Matrix4x4::SR_Matrix4x4(const DirectX::XMFLOAT4X4 & float4x4) noexcept :
 		m_float4x4{ float4x4 }
 	{
 
 	}
 
-	constexpr SR_Matrix4x4::SR_Matrix4x4(DirectX::XMFLOAT4X4 && float4x4) noexcept :
+	SR_Matrix4x4::SR_Matrix4x4(DirectX::XMFLOAT4X4 && float4x4) noexcept :
 		m_float4x4{ std::move(float4x4) }
-	{
-
-	}
-
-	SR_Matrix4x4::~SR_Matrix4x4() noexcept
 	{
 
 	}
@@ -469,7 +465,7 @@ namespace SunrinEngine
 		SR_Matrix4x4 mat4x4;
 
 		DirectX::XMStoreFloat4x4(
-			&m_float4x4,
+			&mat4x4.m_float4x4,
 			std::move(DirectX::XMMatrixMultiply(
 				std::move(DirectX::XMLoadFloat4x4(&m_float4x4)),
 				std::move(DirectX::XMLoadFloat4x4(&matrix4x4.m_float4x4)))));
@@ -905,9 +901,9 @@ namespace SunrinEngine
 		DirectX::XMStoreFloat4x4(
 			&mat4x4.m_float4x4,
 			std::move(DirectX::XMMatrixRotationRollPitchYaw(
-				rotation.x,
-				rotation.y,
-				rotation.z)));
+				std::move(DirectX::XMConvertToRadians(rotation.x)),
+				std::move(DirectX::XMConvertToRadians(rotation.y)),
+				std::move(DirectX::XMConvertToRadians(rotation.z)))));
 
 		return std::move(mat4x4);
 	}

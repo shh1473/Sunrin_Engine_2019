@@ -1,4 +1,5 @@
 #include "SR_PCH.h"
+
 #include "SR_Rectangle.h"
 
 namespace SunrinEngine
@@ -6,43 +7,38 @@ namespace SunrinEngine
 
 	const SR_Rectangle SR_Rectangle::M_Zero{ 0L, 0L, 0L, 0L };
 
-	constexpr SR_Rectangle::SR_Rectangle() noexcept :
+	SR_Rectangle::SR_Rectangle() noexcept :
 		m_rect{}
 	{
 
 	}
 
-	constexpr SR_Rectangle::SR_Rectangle(long left, long top, long right, long bottom) noexcept :
+	SR_Rectangle::SR_Rectangle(long left, long top, long right, long bottom) noexcept :
 		m_rect{ std::move(left), std::move(top), std::move(right), std::move(bottom) }
 	{
 
 	}
 
-	constexpr SR_Rectangle::SR_Rectangle(const SR_Rectangle & rectangle) noexcept :
+	SR_Rectangle::SR_Rectangle(const SR_Rectangle & rectangle) noexcept :
 		m_rect{ rectangle.m_rect }
 	{
 
 	}
 
-	constexpr SR_Rectangle::SR_Rectangle(SR_Rectangle && rectangle) noexcept :
+	SR_Rectangle::SR_Rectangle(SR_Rectangle && rectangle) noexcept :
 		m_rect{ std::move(rectangle.m_rect) }
 	{
 
 	}
 
-	constexpr SR_Rectangle::SR_Rectangle(const D3D11_RECT & rect) noexcept :
+	SR_Rectangle::SR_Rectangle(const D3D11_RECT & rect) noexcept :
 		m_rect{ rect }
 	{
 
 	}
 
-	constexpr SR_Rectangle::SR_Rectangle(D3D11_RECT && rect) noexcept :
+	SR_Rectangle::SR_Rectangle(D3D11_RECT && rect) noexcept :
 		m_rect{ std::move(rect) }
-	{
-
-	}
-
-	SR_Rectangle::~SR_Rectangle() noexcept
 	{
 
 	}

@@ -1,22 +1,23 @@
 #include "SR_PCH.h"
+
 #include "SR_Plane.h"
 
 namespace SunrinEngine
 {
 
-	constexpr SR_Plane::SR_Plane() noexcept :
+	SR_Plane::SR_Plane() noexcept :
 		m_plane{ 0.0f, 1.0f, 0.0f, 0.0f }
 	{
 
 	}
 
-	constexpr SR_Plane::SR_Plane(float x, float y, float z, float w) noexcept :
+	SR_Plane::SR_Plane(float x, float y, float z, float w) noexcept :
 		m_plane{ x, y, z, w }
 	{
 
 	}
 
-	constexpr SR_Plane::SR_Plane(const DirectX::XMFLOAT3 & normal, float d) noexcept :
+	SR_Plane::SR_Plane(const DirectX::XMFLOAT3 & normal, float d) noexcept :
 		m_plane{ normal.x, normal.y, normal.z, d }
 	{
 
@@ -43,31 +44,26 @@ namespace SunrinEngine
 				std::move(DirectX::XMLoadFloat3(&normal)))));
 	}
 
-	constexpr SR_Plane::SR_Plane(const SR_Plane & plane) noexcept :
+	SR_Plane::SR_Plane(const SR_Plane & plane) noexcept :
 		m_plane{ plane.m_plane }
 	{
 
 	}
 
-	constexpr SR_Plane::SR_Plane(SR_Plane && plane) noexcept :
+	SR_Plane::SR_Plane(SR_Plane && plane) noexcept :
 		m_plane{ std::move(plane.m_plane) }
 	{
 
 	}
 
-	constexpr SR_Plane::SR_Plane(const DirectX::XMFLOAT4 & float4) noexcept :
+	SR_Plane::SR_Plane(const DirectX::XMFLOAT4 & float4) noexcept :
 		m_plane{ float4 }
 	{
 
 	}
 
-	constexpr SR_Plane::SR_Plane(DirectX::XMFLOAT4 && float4) noexcept :
+	SR_Plane::SR_Plane(DirectX::XMFLOAT4 && float4) noexcept :
 		m_plane{ std::move(float4) }
-	{
-
-	}
-
-	SR_Plane::~SR_Plane() noexcept
 	{
 
 	}

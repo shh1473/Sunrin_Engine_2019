@@ -8,16 +8,13 @@ namespace SunrinEngine
 	class SR_Viewport
 	{
 	public:
-		constexpr explicit SR_Viewport() noexcept;
-		constexpr explicit SR_Viewport(
-			float topLeftX, float topLeftY,
-			float width, float height,
-			float minDepth, float maxDepth) noexcept;
+		explicit SR_Viewport() noexcept;
+		explicit SR_Viewport(float topLeftX, float topLeftY, float width, float height, float minDepth, float maxDepth) noexcept;
 
-		constexpr SR_Viewport(const SR_Viewport & viewport) noexcept;
-		constexpr SR_Viewport(SR_Viewport && viewport) noexcept;
-
-		~SR_Viewport() noexcept;
+		SR_Viewport(const SR_Viewport & viewport) noexcept;
+		SR_Viewport(SR_Viewport && viewport) noexcept;
+		SR_Viewport(const D3D11_VIEWPORT & viewport) noexcept;
+		SR_Viewport(D3D11_VIEWPORT && viewport) noexcept;
 
 		bool operator==(const SR_Viewport & viewport) const noexcept;
 		bool operator!=(const SR_Viewport & viewport) const noexcept;

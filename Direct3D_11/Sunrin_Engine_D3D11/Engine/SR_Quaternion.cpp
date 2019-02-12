@@ -1,4 +1,5 @@
 #include "SR_PCH.h"
+
 #include "SR_Quaternion.h"
 
 namespace SunrinEngine
@@ -6,43 +7,38 @@ namespace SunrinEngine
 
 	const SR_Quaternion SR_Quaternion::M_Identity{ 0.0f, 0.0f, 0.0f, 1.0f };
 
-	constexpr SR_Quaternion::SR_Quaternion() noexcept :
+	SR_Quaternion::SR_Quaternion() noexcept :
 		m_quaternion{}
 	{
 
 	}
 
-	constexpr SR_Quaternion::SR_Quaternion(float x, float y, float z, float w) noexcept :
+	SR_Quaternion::SR_Quaternion(float x, float y, float z, float w) noexcept :
 		m_quaternion{ x, y, z, w }
 	{
 
 	}
 
-	constexpr SR_Quaternion::SR_Quaternion(const SR_Quaternion & quaternion) noexcept :
+	SR_Quaternion::SR_Quaternion(const SR_Quaternion & quaternion) noexcept :
 		m_quaternion{ quaternion.m_quaternion }
 	{
 
 	}
 
-	constexpr SR_Quaternion::SR_Quaternion(SR_Quaternion && quaternion) noexcept :
+	SR_Quaternion::SR_Quaternion(SR_Quaternion && quaternion) noexcept :
 		m_quaternion{ std::move(quaternion.m_quaternion) }
 	{
 
 	}
 
-	constexpr SR_Quaternion::SR_Quaternion(const DirectX::XMFLOAT4 & float4) noexcept :
+	SR_Quaternion::SR_Quaternion(const DirectX::XMFLOAT4 & float4) noexcept :
 		m_quaternion{ float4 }
 	{
 
 	}
 
-	constexpr SR_Quaternion::SR_Quaternion(DirectX::XMFLOAT4 && float4) noexcept :
+	SR_Quaternion::SR_Quaternion(DirectX::XMFLOAT4 && float4) noexcept :
 		m_quaternion{ std::move(float4) }
-	{
-
-	}
-
-	SR_Quaternion::~SR_Quaternion() noexcept
 	{
 
 	}

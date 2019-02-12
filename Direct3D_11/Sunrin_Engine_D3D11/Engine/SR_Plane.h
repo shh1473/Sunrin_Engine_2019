@@ -8,18 +8,16 @@ namespace SunrinEngine
 	class SR_Plane
 	{
 	public:
-		constexpr explicit SR_Plane() noexcept;
-		constexpr explicit SR_Plane(float x, float y, float z, float w) noexcept;
-		constexpr explicit SR_Plane(const DirectX::XMFLOAT3 & normal, float d) noexcept;
-		explicit SR_Plane(const DirectX::XMFLOAT3 & point_1, const DirectX::XMFLOAT3 & point_2, const DirectX::XMFLOAT3 & point_3) noexcept;
-		explicit SR_Plane(const DirectX::XMFLOAT3 & point, const DirectX::XMFLOAT3 & normal) noexcept;
+		explicit SR_Plane() noexcept;
+		explicit SR_Plane(float x, float y, float z, float w) noexcept;
+		explicit SR_Plane(const DirectX::XMFLOAT3 & normal, float d) noexcept;
+		SR_Plane(const DirectX::XMFLOAT3 & point_1, const DirectX::XMFLOAT3 & point_2, const DirectX::XMFLOAT3 & point_3) noexcept;
+		SR_Plane(const DirectX::XMFLOAT3 & point, const DirectX::XMFLOAT3 & normal) noexcept;
 
-		constexpr SR_Plane(const SR_Plane & plane) noexcept;
-		constexpr SR_Plane(SR_Plane && plane) noexcept;
-		constexpr SR_Plane(const DirectX::XMFLOAT4 & float4) noexcept;
-		constexpr SR_Plane(DirectX::XMFLOAT4 && float4) noexcept;
-
-		~SR_Plane() noexcept;
+		SR_Plane(const SR_Plane & plane) noexcept;
+		SR_Plane(SR_Plane && plane) noexcept;
+		SR_Plane(const DirectX::XMFLOAT4 & float4) noexcept;
+		SR_Plane(DirectX::XMFLOAT4 && float4) noexcept;
 
 		bool operator==(const SR_Plane & plane) const;
 		bool operator!=(const SR_Plane & plane) const;
@@ -51,6 +49,8 @@ namespace SunrinEngine
 				float m_w;
 
 			};
+
+			float m_array[4];
 
 			DirectX::XMFLOAT4 m_plane;
 

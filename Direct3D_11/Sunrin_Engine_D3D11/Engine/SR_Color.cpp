@@ -1,46 +1,47 @@
 #include "SR_PCH.h"
+
 #include "SR_Color.h"
 
 namespace SunrinEngine
 {
 
-	constexpr SR_Color::SR_Color() noexcept :
+	SR_Color::SR_Color() noexcept :
 		m_color{ 0.0f, 0.0f, 0.0f, 1.0f }
 	{
 
 	}
 
-	constexpr SR_Color::SR_Color(float r, float g, float b) noexcept :
+	SR_Color::SR_Color(float r, float g, float b) noexcept :
 		m_color{ r, g, b, 1.0f }
 	{
 
 	}
 
-	constexpr SR_Color::SR_Color(float r, float g, float b, float a) noexcept :
+	SR_Color::SR_Color(float r, float g, float b, float a) noexcept :
 		m_color{ r, g, b, a }
 	{
 
 	}
 
-	constexpr SR_Color::SR_Color(const SR_Color & color) noexcept :
+	SR_Color::SR_Color(const SR_Color & color) noexcept :
 		m_color{ color.m_color }
 	{
 
 	}
 
-	constexpr SR_Color::SR_Color(SR_Color && color) noexcept :
+	SR_Color::SR_Color(SR_Color && color) noexcept :
 		m_color{ std::move(color.m_color) }
 	{
 
 	}
 
-	constexpr SR_Color::SR_Color(const DirectX::XMFLOAT4 & float4) noexcept :
+	SR_Color::SR_Color(const DirectX::XMFLOAT4 & float4) noexcept :
 		m_color{ float4 }
 	{
 
 	}
 
-	constexpr SR_Color::SR_Color(DirectX::XMFLOAT4 && float4) noexcept :
+	SR_Color::SR_Color(DirectX::XMFLOAT4 && float4) noexcept :
 		m_color{ std::move(float4) }
 	{
 

@@ -8,14 +8,14 @@ namespace SunrinEngine
 	class SR_Color
 	{
 	public:
-		constexpr explicit SR_Color() noexcept;
-		constexpr explicit SR_Color(float r, float g, float b) noexcept;
-		constexpr explicit SR_Color(float r, float g, float b, float a) noexcept;
+		explicit SR_Color() noexcept;
+		explicit SR_Color(float r, float g, float b) noexcept;
+		explicit SR_Color(float r, float g, float b, float a) noexcept;
 
-		constexpr SR_Color(const SR_Color & color) noexcept;
-		constexpr SR_Color(SR_Color && color) noexcept;
-		constexpr SR_Color(const DirectX::XMFLOAT4 & float4) noexcept;
-		constexpr SR_Color(DirectX::XMFLOAT4 && float4) noexcept;
+		SR_Color(const SR_Color & color) noexcept;
+		SR_Color(SR_Color && color) noexcept;
+		SR_Color(const DirectX::XMFLOAT4 & float4) noexcept;
+		SR_Color(DirectX::XMFLOAT4 && float4) noexcept;
 
 		~SR_Color() noexcept;
 
@@ -69,6 +69,8 @@ namespace SunrinEngine
 				float m_a;
 
 			};
+
+			float m_array[4];
 
 			DirectX::XMFLOAT4 m_color;
 

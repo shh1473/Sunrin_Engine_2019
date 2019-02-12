@@ -1,58 +1,54 @@
 #include "SR_PCH.h"
+
 #include "SR_Vector3.h"
 
 namespace SunrinEngine
 {
 
-	const SR_Vector3 SR_Vector3::M_Zero		{  0.0f,  0.0f,  0.0f };
-	const SR_Vector3 SR_Vector3::M_One		{  1.0f,  1.0f,  1.0f };
-	const SR_Vector3 SR_Vector3::M_UnitX	{  1.0f,  0.0f,  0.0f };
-	const SR_Vector3 SR_Vector3::M_UnitY	{  0.0f,  1.0f,  0.0f };
-	const SR_Vector3 SR_Vector3::M_UnitZ	{  0.0f,  0.0f,  1.0f };
-	const SR_Vector3 SR_Vector3::M_Up		{  0.0f,  1.0f,  0.0f };
-	const SR_Vector3 SR_Vector3::M_Down		{  0.0f, -1.0f,  0.0f };
-	const SR_Vector3 SR_Vector3::M_Right	{  1.0f,  0.0f,  0.0f };
-	const SR_Vector3 SR_Vector3::M_Left		{ -1.0f,  0.0f,  0.0f };
-	const SR_Vector3 SR_Vector3::M_Forward	{  0.0f,  1.0f,  1.0f };
-	const SR_Vector3 SR_Vector3::M_Backward	{  0.0f,  1.0f, -1.0f };
+	const SR_Vector3 SR_Vector3::m_ZERO		{  0.0f,  0.0f,  0.0f };
+	const SR_Vector3 SR_Vector3::m_ONE		{  1.0f,  1.0f,  1.0f };
+	const SR_Vector3 SR_Vector3::m_UNIT_X	{  1.0f,  0.0f,  0.0f };
+	const SR_Vector3 SR_Vector3::m_UNIT_Y	{  0.0f,  1.0f,  0.0f };
+	const SR_Vector3 SR_Vector3::m_UNIT_Z	{  0.0f,  0.0f,  1.0f };
+	const SR_Vector3 SR_Vector3::m_UP		{  0.0f,  1.0f,  0.0f };
+	const SR_Vector3 SR_Vector3::m_DOWN		{  0.0f, -1.0f,  0.0f };
+	const SR_Vector3 SR_Vector3::m_RIGHT	{  1.0f,  0.0f,  0.0f };
+	const SR_Vector3 SR_Vector3::m_LEFT		{ -1.0f,  0.0f,  0.0f };
+	const SR_Vector3 SR_Vector3::m_FORWARD	{  0.0f,  1.0f,  1.0f };
+	const SR_Vector3 SR_Vector3::m_BACKWARD	{  0.0f,  1.0f, -1.0f };
 
-	constexpr SR_Vector3::SR_Vector3() noexcept :
+	SR_Vector3::SR_Vector3() noexcept :
 		m_float3{ 0.0f, 0.0f, 0.0f }
 	{
 
 	}
 
-	constexpr SR_Vector3::SR_Vector3(float x, float y, float z) noexcept :
+	SR_Vector3::SR_Vector3(float x, float y, float z) noexcept :
 		m_float3{ x, y, z }
 	{
 
 	}
 
-	constexpr SR_Vector3::SR_Vector3(const SR_Vector3 & vector3) noexcept :
+	SR_Vector3::SR_Vector3(const SR_Vector3 & vector3) noexcept :
 		m_float3{ vector3.m_float3 }
 	{
 
 	}
 
-	constexpr SR_Vector3::SR_Vector3(SR_Vector3 && vector3) noexcept :
+	SR_Vector3::SR_Vector3(SR_Vector3 && vector3) noexcept :
 		m_float3{ std::move(vector3.m_float3) }
 	{
 
 	}
 
-	constexpr SR_Vector3::SR_Vector3(const DirectX::XMFLOAT3 & vector3) noexcept :
+	SR_Vector3::SR_Vector3(const DirectX::XMFLOAT3 & vector3) noexcept :
 		m_float3{ vector3 }
 	{
 
 	}
 
-	constexpr SR_Vector3::SR_Vector3(DirectX::XMFLOAT3 && vector3) noexcept :
+	SR_Vector3::SR_Vector3(DirectX::XMFLOAT3 && vector3) noexcept :
 		m_float3{ std::move(vector3) }
-	{
-
-	}
-
-	SR_Vector3::~SR_Vector3() noexcept
 	{
 
 	}

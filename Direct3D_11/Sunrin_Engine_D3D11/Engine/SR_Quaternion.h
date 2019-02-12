@@ -8,15 +8,13 @@ namespace SunrinEngine
 	class SR_Quaternion
 	{
 	public:
-		constexpr explicit SR_Quaternion() noexcept;
-		constexpr explicit SR_Quaternion(float x, float y, float z, float w) noexcept;
+		explicit SR_Quaternion() noexcept;
+		explicit SR_Quaternion(float x, float y, float z, float w) noexcept;
 
-		constexpr SR_Quaternion(const SR_Quaternion & quaternion) noexcept;
-		constexpr SR_Quaternion(SR_Quaternion && quaternion) noexcept;
-		constexpr SR_Quaternion(const DirectX::XMFLOAT4 & float4) noexcept;
-		constexpr SR_Quaternion(DirectX::XMFLOAT4 && float4) noexcept;
-
-		~SR_Quaternion() noexcept;
+		SR_Quaternion(const SR_Quaternion & quaternion) noexcept;
+		SR_Quaternion(SR_Quaternion && quaternion) noexcept;
+		SR_Quaternion(const DirectX::XMFLOAT4 & float4) noexcept;
+		SR_Quaternion(DirectX::XMFLOAT4 && float4) noexcept;
 
 		bool operator==(const SR_Quaternion & quaternion) const;
 		bool operator!=(const SR_Quaternion & quaternion) const;
@@ -80,6 +78,8 @@ namespace SunrinEngine
 				float m_w;
 
 			};
+
+			float m_array[4];
 			
 			DirectX::XMFLOAT4 m_quaternion;
 

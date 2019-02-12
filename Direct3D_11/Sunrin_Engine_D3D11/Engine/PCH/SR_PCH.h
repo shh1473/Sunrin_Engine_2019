@@ -1,5 +1,6 @@
 #pragma once
 
+// 포함 전 매크로
 #define DIRECTINPUT_VERSION 0x0800
 
 // C 헤더
@@ -7,6 +8,7 @@
 #include <assert.h>
 #include <wincodec.h>
 
+#pragma comment(lib, "legacy_stdio_definitions.lib")
 #pragma comment(lib, "winmm.lib")
 
 // C++ 헤더
@@ -29,6 +31,8 @@
 #include <typeindex>
 #include <random>
 #include <chrono>
+#include <mutex>
+#include <future>
 
 // DXGI 헤더
 #include <dxgi1_6.h>
@@ -52,22 +56,16 @@
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d2d1.lib")
+#pragma comment(lib, "d3dcompiler.lib")
 #pragma comment(lib, "dxguid.lib")
 #pragma comment(lib, "dwrite.lib")
 #pragma comment(lib, "dinput8.lib")
 #pragma comment(lib, "dsound.lib")
 
-// 외부 라이브러리
-#include "..\ExternalLibrary\TinyXML2\tinyxml2.h"
-#include "..\ExternalLibrary\Vorbis\include\vorbisfile.h"
-
-auto _fprintf = fprintf;
-auto _sprintf = sprintf;
-#pragma comment(lib, "Vorbis/lib/ogg_static.lib")
-#pragma comment(lib, "Vorbis/lib/vorbis_static.lib")
-#pragma comment(lib, "Vorbis/lib/vorbisfile_static.lib")
-
+// 포함 후 매크로
 #pragma region MACRO
+
+#define SR_MAX_THREAD_COUNT 4
 
 #define SR_DELETE(p)		\
 {							\

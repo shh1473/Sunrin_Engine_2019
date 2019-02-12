@@ -1,24 +1,29 @@
 #include "SR_PCH.h"
+
 #include "SR_App.h"
-#include "SR_Converter.h"
 
 namespace SunrinEngine
 {
 
-	std::unique_ptr<SR_App> SR_App::M_instance{};
+	std::unique_ptr<SR_App> SR_App::m_INSTANCE{ nullptr };
 
 	SR_App::SR_App() noexcept :
-		m_isWindowResized		{},
-		m_clientWidth			{},
-		m_clientHeight			{},
-		m_centerWidth			{},
-		m_centerHeight			{},
-		m_windowHandle			{},
-		m_windowInstanceHandle	{},
+		m_isWindowResized		{ false },
+		m_windowWidth			{ 0 },
+		m_windowHeight			{ 0 },
+		m_clientWidth			{ 0 },
+		m_clientHeight			{ 0 },
+		m_centerWidth			{ 0.0f },
+		m_centerHeight			{ 0.0f },
+		m_windowHandle			{ NULL },
+		m_windowInstanceHandle	{ NULL },
 		m_programSettingXML		{},
 		m_log					{},
 		m_time					{},
-		m_input					{}
+		m_input					{},
+		m_graphic				{},
+		m_sound					{},
+		m_scene					{}
 	{
 		
 	}
@@ -30,6 +35,9 @@ namespace SunrinEngine
 		SR_RF_BOOL(InitializeWindow());
 		SR_RF_BOOL(InitializeTime());
 		SR_RF_BOOL(InitializeInput());
+		SR_RF_BOOL(InitializeGraphic());
+		SR_RF_BOOL(InitializeSound());
+		SR_RF_BOOL(InitializeScene());
 
 		return true;
 	}
@@ -58,7 +66,41 @@ namespace SunrinEngine
 
 	bool SR_App::DoFrameMove()
 	{
+		SR_RF_BOOL(m_input.UpdateKeyboardInput());
+		SR_RF_BOOL(m_input.UpdateMouseInput());
+
+		m_time.Update();
+
+		m_scene.UpdateScene();
+
+		for (unsigned i{ 0 }; i < m_time.GetFixedUpdateCallCount(); ++i)
+		{
+			SR_RF_BOOL(m_scene.FixedUpdate());
+		}
+
+		SR_RF_BOOL(m_scene.Update());
+		SR_RF_BOOL(m_scene.LateUpdate());
+		SR_RF_BOOL(m_scene.Render());
+
+		SR_RF_BOOL(m_graphic.Present());
+
 		return true;
+	}
+
+	bool SR_App::ChangeResolution(unsigned width, unsigned height)
+	{
+		m_isWindowResized = true;
+
+		m_clientWidth = width;
+		m_clientHeight = height;
+		m_windowWidth = m_clientWidth + SR_WINDOW_BORDER_LENGTH_X;
+		m_windowHeight = m_clientHeight + SR_WINDOW_BORDER_LENGTH_Y;
+		m_centerWidth = static_cast<float>(m_clientWidth) * 0.5f;
+		m_centerHeight = static_cast<float>(m_clientHeight) * 0.5f;
+
+		m_graphic.ResizeTarget(m_clientWidth, m_clientHeight);
+
+		return false;
 	}
 
 	void SR_App::HandleMessage(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
@@ -71,13 +113,7 @@ namespace SunrinEngine
 				{
 					m_isWindowResized = false;
 
-					RECT rt{ 0L, 0L, 0L, 0L };
-					SR_LOG_BOOL_AUTO(GetWindowRect(m_windowHandle, &rt));
-
-					m_programSettingXML.SetWindowWidth(static_cast<unsigned>(rt.right));
-					m_programSettingXML.SetWindowHeight(static_cast<unsigned>(rt.bottom));
-
-					//ODK_LOG_BOOL_AUTO(m_DGraphic->ResizeSwapChainBuffers(m_clientWidth, m_clientHeight));
+					SR_LOG_BOOL_AUTO(m_graphic.ResizeBuffers(m_clientWidth, m_clientHeight));
 				}
 			}
 			break;
@@ -88,6 +124,8 @@ namespace SunrinEngine
 
 				m_programSettingXML.SetWindowPositionX(static_cast<unsigned>(rt.left));
 				m_programSettingXML.SetWindowPositionY(static_cast<unsigned>(rt.top));
+				m_programSettingXML.SetClientWidth(m_clientWidth);
+				m_programSettingXML.SetClientHeight(m_clientHeight);
 
 				m_programSettingXML.Save();
 			}
@@ -97,12 +135,19 @@ namespace SunrinEngine
 
 	void SR_App::CreateInstance()
 	{
-		M_instance.reset(new SR_App());
+		m_INSTANCE.reset(new SR_App());
 	}
 
 	const std::unique_ptr<SR_App> & SR_App::GetInstance() noexcept
 	{
-		return M_instance;
+		return m_INSTANCE;
+	}
+
+	bool SR_App::InitializeLog()
+	{
+		SR_RF_BOOL(m_log.Initialize());
+
+		return true;
 	}
 
 	bool SR_App::InitializeProgramSettingXML()
@@ -118,8 +163,6 @@ namespace SunrinEngine
 		SR_LOG_RF_BOOL(m_windowInstanceHandle,
 					   L"윈도우 인스턴스의 핸들을 가져오는 데 실패했습니다.");
 
-		std::wstring windowTitle{ SR_Converter::ToUnicode(m_programSettingXML.GetWindowTitle()) };
-
 		WNDCLASSEXW windowClass;
 		ZeroMemory(&windowClass, sizeof(WNDCLASSEXW));
 		windowClass.cbSize = sizeof(WNDCLASSEXW);
@@ -131,50 +174,31 @@ namespace SunrinEngine
 		windowClass.hIconSm = LoadIconW(NULL, IDI_APPLICATION);
 		windowClass.hInstance = m_windowInstanceHandle;
 		windowClass.lpfnWndProc = WndProc;
-		windowClass.lpszClassName = windowTitle.c_str();
+		windowClass.lpszClassName = m_programSettingXML.GetWindowTitle().c_str();
 		windowClass.lpszMenuName = NULL;
 		windowClass.style = CS_HREDRAW | CS_VREDRAW;
 
 		SR_LOG_RF_BOOL_AUTO(RegisterClassExW(&windowClass));
 
+		m_clientWidth = m_programSettingXML.GetClientWidth();
+		m_clientHeight = m_programSettingXML.GetClientHeight();
+		m_windowWidth = m_clientWidth + SR_WINDOW_BORDER_LENGTH_X;
+		m_windowHeight = m_clientHeight + SR_WINDOW_BORDER_LENGTH_Y;
+		m_centerWidth = static_cast<float>(m_clientWidth) * 0.5f;
+		m_centerHeight = static_cast<float>(m_clientHeight) * 0.5f;
+
 		m_windowHandle = CreateWindowExW(
 			WS_EX_APPWINDOW,
-			windowTitle.c_str(),
-			windowTitle.c_str(),
+			m_programSettingXML.GetWindowTitle().c_str(),
+			m_programSettingXML.GetWindowTitle().c_str(),
 			WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX,
 			m_programSettingXML.GetWindowPositionX(), m_programSettingXML.GetWindowPositionY(),
-			m_programSettingXML.GetWindowWidth(), m_programSettingXML.GetWindowHeight(),
+			m_windowWidth, m_windowHeight,
 			NULL, NULL, m_windowInstanceHandle, NULL);
 		SR_LOG_RF_BOOL(m_windowHandle,
 					   L"윈도우를 생성하는 데 실패했습니다.");
 
 		ShowWindow(m_windowHandle, SW_SHOW);
-
-		RECT rt{ 0L, 0L, 0L, 0L };
-		SR_LOG_BOOL_AUTO(GetClientRect(m_windowHandle, &rt));
-
-		m_clientWidth = rt.right;
-		m_clientHeight = rt.bottom;
-		m_centerWidth = static_cast<float>(m_clientWidth) * 0.5f;
-		m_centerHeight = static_cast<float>(m_clientHeight) * 0.5f;
-		m_centerHeight = static_cast<float>(m_clientHeight) * 0.5f;
-
-		return true;
-	}
-
-	bool SR_App::InitializeDGraphic()
-	{
-		return true;
-	}
-
-	bool SR_App::InitializeDSound()
-	{
-		return true;
-	}
-
-	bool SR_App::InitializeLog()
-	{
-		SR_RF_BOOL(m_log.Initialize());
 
 		return true;
 	}
@@ -189,6 +213,27 @@ namespace SunrinEngine
 	bool SR_App::InitializeInput()
 	{
 		SR_RF_BOOL(m_input.Initialize());
+
+		return true;
+	}
+
+	bool SR_App::InitializeGraphic()
+	{
+		SR_RF_BOOL(m_graphic.Initialize());
+
+		return true;
+	}
+
+	bool SR_App::InitializeSound()
+	{
+		SR_RF_BOOL(m_sound.Initialize());
+
+		return true;
+	}
+
+	bool SR_App::InitializeScene()
+	{
+		SR_RF_BOOL(m_scene.Initialize());
 
 		return true;
 	}

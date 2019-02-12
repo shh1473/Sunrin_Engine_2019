@@ -1,17 +1,18 @@
 #include "SR_PCH.h"
+
 #include "SR_Ray.h"
 
 namespace SunrinEngine
 {
 
-	constexpr SR_Ray::SR_Ray() noexcept :
+	SR_Ray::SR_Ray() noexcept :
 		m_position	{ 0.0f, 0.0f, 0.0f },
 		m_direction	{ 0.0f, 0.0f, 0.0f }
 	{
 
 	}
 
-	constexpr SR_Ray::SR_Ray(
+	SR_Ray::SR_Ray(
 		float x, float y, float z,
 		float dx, float dy, float dz) noexcept :
 		m_position	{ x, y, z },
@@ -20,7 +21,7 @@ namespace SunrinEngine
 
 	}
 
-	constexpr SR_Ray::SR_Ray(
+	SR_Ray::SR_Ray(
 		const DirectX::XMFLOAT3 & position,
 		const DirectX::XMFLOAT3 & direction) noexcept :
 		m_position	{ position },
@@ -29,21 +30,16 @@ namespace SunrinEngine
 
 	}
 
-	constexpr SR_Ray::SR_Ray(const SR_Ray & ray) noexcept :
+	SR_Ray::SR_Ray(const SR_Ray & ray) noexcept :
 		m_position	{ ray.m_position },
 		m_direction	{ ray.m_direction }
 	{
 
 	}
 
-	constexpr SR_Ray::SR_Ray(SR_Ray && ray) noexcept :
+	SR_Ray::SR_Ray(SR_Ray && ray) noexcept :
 		m_position	{ std::move(ray.m_position) },
 		m_direction	{ std::move(ray.m_direction) }
-	{
-
-	}
-
-	SR_Ray::~SR_Ray() noexcept
 	{
 
 	}

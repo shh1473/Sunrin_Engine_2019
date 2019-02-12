@@ -7,25 +7,23 @@ namespace SunrinEngine
 
 	class SR_Matrix4x4
 	{
-
-		constexpr explicit SR_Matrix4x4() noexcept;
-		constexpr explicit SR_Matrix4x4(
+	public:
+		explicit SR_Matrix4x4() noexcept;
+		explicit SR_Matrix4x4(
 			float m11, float m12, float m13, float m14,
 			float m21, float m22, float m23, float m24,
 			float m31, float m32, float m33, float m34,
 			float m41, float m42, float m43, float m44) noexcept;
-		constexpr explicit SR_Matrix4x4(
+		explicit SR_Matrix4x4(
 			const DirectX::XMFLOAT4 & r1,
 			const DirectX::XMFLOAT4 & r2,
 			const DirectX::XMFLOAT4 & r3,
 			const DirectX::XMFLOAT4 & r4) noexcept;
 
-		constexpr SR_Matrix4x4(const SR_Matrix4x4 & matrix4x4) noexcept;
-		constexpr SR_Matrix4x4(SR_Matrix4x4 && matrix4x4) noexcept;
-		constexpr SR_Matrix4x4(const DirectX::XMFLOAT4X4 & float4x4) noexcept;
-		constexpr SR_Matrix4x4(DirectX::XMFLOAT4X4 && float4x4) noexcept;
-
-		~SR_Matrix4x4() noexcept;
+		SR_Matrix4x4(const SR_Matrix4x4 & matrix4x4) noexcept;
+		SR_Matrix4x4(SR_Matrix4x4 && matrix4x4) noexcept;
+		SR_Matrix4x4(const DirectX::XMFLOAT4X4 & float4x4) noexcept;
+		SR_Matrix4x4(DirectX::XMFLOAT4X4 && float4x4) noexcept;
 
 		bool operator==(const SR_Matrix4x4 & matrix4x4) const;
 		bool operator!=(const SR_Matrix4x4 & matrix4x4) const;
@@ -121,7 +119,7 @@ namespace SunrinEngine
 		static const SR_Matrix4x4 Transform(const SR_Matrix4x4 & matrix, const DirectX::XMFLOAT4 & quaternion);
 
 		public:
-			static const SR_Matrix4x4 M_Identity;
+			static const SR_Matrix4x4 m_IDENTITY;
 
 			union
 			{
@@ -133,6 +131,8 @@ namespace SunrinEngine
 					float m_41, m_42, m_43, m_44;
 
 				};
+
+				float m_array[4][4];
 
 				DirectX::XMFLOAT4X4 m_float4x4;
 

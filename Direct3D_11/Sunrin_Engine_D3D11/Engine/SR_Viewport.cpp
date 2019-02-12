@@ -1,34 +1,42 @@
 #include "SR_PCH.h"
+
 #include "SR_Viewport.h"
 
 namespace SunrinEngine
 {
 
-	constexpr SR_Viewport::SR_Viewport() noexcept :
+	SR_Viewport::SR_Viewport() noexcept :
 		m_viewport{ 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f }
 	{
 
 	}
 
-	constexpr SR_Viewport::SR_Viewport(float topLeftX, float topLeftY, float width, float height, float minDepth, float maxDepth) noexcept :
-		m_viewport{ topLeftX, topLeftY, width, height, minDepth, maxDepth }
+	SR_Viewport::SR_Viewport(float topLeftX, float topLeftY, float width, float height, float minDepth, float maxDepth) noexcept :
+		m_viewport{ std::move(topLeftX), std::move(topLeftY), std::move(width), std::move(height), std::move(minDepth), std::move(maxDepth) }
 	{
 
 	}
 
-	constexpr SR_Viewport::SR_Viewport(const SR_Viewport & viewport) noexcept :
+	SR_Viewport::SR_Viewport(const SR_Viewport & viewport) noexcept :
 		m_viewport{ viewport.m_viewport }
 	{
 
 	}
 
-	constexpr SR_Viewport::SR_Viewport(SR_Viewport && viewport) noexcept :
+	SR_Viewport::SR_Viewport(SR_Viewport && viewport) noexcept :
 		m_viewport{ std::move(viewport.m_viewport) }
 	{
 
 	}
 
-	SR_Viewport::~SR_Viewport() noexcept
+	SR_Viewport::SR_Viewport(const D3D11_VIEWPORT & viewport) noexcept :
+		m_viewport { viewport }
+	{
+
+	}
+
+	SR_Viewport::SR_Viewport(D3D11_VIEWPORT && viewport) noexcept :
+		m_viewport{ std::move(viewport) }
 	{
 
 	}

@@ -25,28 +25,109 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Engine\SR_App.cpp" />
+    <ClCompile Include="Engine\SR_Bitmap.cpp" />
+    <ClCompile Include="Engine\SR_Camera.cpp" />
+    <ClCompile Include="Engine\SR_CameraParameterSet.cpp" />
     <ClCompile Include="Engine\SR_Color.cpp" />
+    <ClCompile Include="Engine\SR_ColorMatrixEffect.cpp" />
+    <ClCompile Include="Engine\SR_CommonProgrammableStage.cpp" />
+    <ClCompile Include="Engine\SR_CommonShader.cpp" />
+    <ClCompile Include="Engine\SR_CommonShaderParameterSet.cpp" />
+    <ClCompile Include="Engine\SR_CommonSound.cpp" />
     <ClCompile Include="Engine\SR_Component.cpp" />
+    <ClCompile Include="Engine\SR_ComputeShader.cpp" />
+    <ClCompile Include="Engine\SR_ComputeShaderParameterSet.cpp" />
+    <ClCompile Include="Engine\SR_ComputeShaderStage.cpp" />
     <ClCompile Include="Engine\SR_Converter.cpp" />
+    <ClCompile Include="Engine\SR_DeferredStage.cpp" />
+    <ClCompile Include="Engine\SR_DirtyFlagMath.cpp" />
+    <ClCompile Include="Engine\SR_DomainShader.cpp" />
+    <ClCompile Include="Engine\SR_DomainShaderParameterSet.cpp" />
+    <ClCompile Include="Engine\SR_DomainShaderStage.cpp" />
+    <ClCompile Include="Engine\SR_DrawInstancedIndirectPass.cpp" />
+    <ClCompile Include="Engine\SR_DrawInstancedPass.cpp" />
+    <ClCompile Include="Engine\SR_DrawPass.cpp" />
+    <ClCompile Include="Engine\SR_Effect.cpp" />
+    <ClCompile Include="Engine\SR_Entity.cpp" />
+    <ClCompile Include="Engine\SR_Executor.cpp" />
+    <ClCompile Include="Engine\SR_GameScene.cpp" />
+    <ClCompile Include="Engine\SR_Generator.cpp" />
+    <ClCompile Include="Engine\SR_GeometryShader.cpp" />
+    <ClCompile Include="Engine\SR_GeometryShaderParameterSet.cpp" />
+    <ClCompile Include="Engine\SR_GeometryShaderStage.cpp" />
+    <ClCompile Include="Engine\SR_Graphic.cpp" />
+    <ClCompile Include="Engine\SR_HullShader.cpp" />
+    <ClCompile Include="Engine\SR_HullShaderParameterSet.cpp" />
+    <ClCompile Include="Engine\SR_HullShaderStage.cpp" />
     <ClCompile Include="Engine\SR_Input.cpp" />
+    <ClCompile Include="Engine\SR_InputAssemblerStage.cpp" />
+    <ClCompile Include="Engine\SR_InputElement.cpp" />
+    <ClCompile Include="Engine\SR_InputParameterSet.cpp" />
     <ClCompile Include="Engine\SR_KeyCode.cpp" />
     <ClCompile Include="Engine\SR_Log.cpp" />
     <ClCompile Include="Engine\SR_Math.cpp" />
     <ClCompile Include="Engine\SR_Matrix3x2.cpp" />
     <ClCompile Include="Engine\SR_Matrix4x4.cpp" />
+    <ClCompile Include="Engine\SR_Matrix5x4.cpp" />
+    <ClCompile Include="Engine\SR_Mesh.cpp" />
     <ClCompile Include="Engine\SR_NonCopyable.cpp" />
+    <ClCompile Include="Engine\SR_OggSound.cpp" />
+    <ClCompile Include="Engine\SR_OutputMergerStage.cpp" />
+    <ClCompile Include="Engine\SR_CommonPass.cpp" />
+    <ClCompile Include="Engine\SR_PixelShader.cpp" />
+    <ClCompile Include="Engine\SR_PixelShaderParameterSet.cpp" />
+    <ClCompile Include="Engine\SR_PixelShaderStage.cpp" />
     <ClCompile Include="Engine\SR_Plane.cpp" />
     <ClCompile Include="Engine\SR_ProgramSettingXML.cpp" />
     <ClCompile Include="Engine\SR_Quaternion.cpp" />
+    <ClCompile Include="Engine\SR_RasterizerStage.cpp" />
     <ClCompile Include="Engine\SR_Ray.cpp" />
     <ClCompile Include="Engine\SR_Rectangle.cpp" />
+    <ClCompile Include="Engine\SR_RenderDescription.cpp" />
+    <ClCompile Include="Engine\SR_Renderer.cpp" />
+    <ClCompile Include="Engine\SR_RenderExecutor.cpp" />
+    <ClCompile Include="Engine\SR_RenderTask.cpp" />
+    <ClCompile Include="Engine\SR_RenderTechnique.cpp" />
+    <ClCompile Include="Engine\SR_ResourceGenerator.cpp" />
+    <ClCompile Include="Engine\SR_Scene.cpp" />
+    <ClCompile Include="Engine\SR_Sound.cpp" />
+    <ClCompile Include="Engine\SR_StreamOutputStage.cpp" />
+    <ClCompile Include="Engine\SR_StreamParameterSet.cpp" />
+    <ClCompile Include="Engine\SR_TargetParameterSet.cpp" />
+    <ClCompile Include="Engine\SR_TargetStage.cpp" />
+    <ClCompile Include="Engine\SR_Task.cpp" />
     <ClCompile Include="Engine\SR_Time.cpp" />
+    <ClCompile Include="Engine\SR_Timer.cpp" />
     <ClCompile Include="Engine\SR_Transform.cpp" />
+    <ClCompile Include="Engine\SR_UI.cpp" />
+    <ClCompile Include="Engine\SR_UIAnimationPass.cpp" />
+    <ClCompile Include="Engine\SR_UICamera.cpp" />
+    <ClCompile Include="Engine\SR_UIComponent.cpp" />
+    <ClCompile Include="Engine\SR_UIPass.cpp" />
+    <ClCompile Include="Engine\SR_UIRenderer.cpp" />
+    <ClCompile Include="Engine\SR_UITechnique.cpp" />
+    <ClCompile Include="Engine\SR_UITransform.cpp" />
+    <ClCompile Include="Engine\SR_UpdateExecutor.cpp" />
+    <ClCompile Include="Engine\SR_UpdateTask.cpp" />
     <ClCompile Include="Engine\SR_Vector2.cpp" />
     <ClCompile Include="Engine\SR_Vector3.cpp" />
     <ClCompile Include="Engine\SR_Vector4.cpp" />
+    <ClCompile Include="Engine\SR_VertexShader.cpp" />
+    <ClCompile Include="Engine\SR_VertexShaderParameterSet.cpp" />
+    <ClCompile Include="Engine\SR_VertexShaderStage.cpp" />
     <ClCompile Include="Engine\SR_Viewport.cpp" />
+    <ClCompile Include="Engine\SR_WavSound.cpp" />
     <ClCompile Include="Engine\SR_XML.cpp" />
+    <ClCompile Include="Example\BitmapPass.cpp" />
+    <ClCompile Include="Example\ColorEntity.cpp" />
+    <ClCompile Include="Example\ColorPass.cpp" />
+    <ClCompile Include="Example\ColorRenderingScene.cpp" />
+    <ClCompile Include="Example\CameraEntity.cpp" />
+    <ClCompile Include="Example\DefaultCamera.cpp" />
+    <ClCompile Include="Example\EmptyScene.cpp" />
+    <ClCompile Include="Example\LoadedScene.cpp" />
+    <ClCompile Include="Example\LoadingScene.cpp" />
+    <ClCompile Include="Example\UIRenderingScene.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -57,29 +138,122 @@
     <ClInclude Include="Engine\ExternalLibrary\Vorbis\include\vorbisfile.h" />
     <ClInclude Include="Engine\PCH\SR_PCH.h" />
     <ClInclude Include="Engine\SR_App.h" />
+    <ClInclude Include="Engine\SR_Bitmap.h" />
+    <ClInclude Include="Engine\SR_Camera.h" />
+    <ClInclude Include="Engine\SR_CameraParameterSet.h" />
     <ClInclude Include="Engine\SR_Color.h" />
+    <ClInclude Include="Engine\SR_ColorMatrixEffect.h" />
+    <ClInclude Include="Engine\SR_CommonProgrammableStage.h" />
+    <ClInclude Include="Engine\SR_CommonShader.h" />
+    <ClInclude Include="Engine\SR_CommonShaderParameterSet.h" />
     <ClInclude Include="Engine\SR_Component.h" />
+    <ClInclude Include="Engine\SR_TargetParameterSet.h" />
+    <ClInclude Include="Engine\SR_UIAnimationPass.h" />
+    <ClInclude Include="Engine\SR_UICamera.h" />
+    <ClInclude Include="Engine\SR_UIComponent.h" />
+    <ClInclude Include="Engine\SR_ComputeShader.h" />
+    <ClInclude Include="Engine\SR_ComputeShaderParameterSet.h" />
+    <ClInclude Include="Engine\SR_ComputeShaderStage.h" />
     <ClInclude Include="Engine\SR_Converter.h" />
+    <ClInclude Include="Engine\SR_DeferredStage.h" />
+    <ClInclude Include="Engine\SR_DirtyFlag.h" />
+    <ClInclude Include="Engine\SR_DirtyFlagMath.h" />
+    <ClInclude Include="Engine\SR_DomainShader.h" />
+    <ClInclude Include="Engine\SR_DomainShaderParameterSet.h" />
+    <ClInclude Include="Engine\SR_DomainShaderStage.h" />
+    <ClInclude Include="Engine\SR_DrawInstancedIndirectPass.h" />
+    <ClInclude Include="Engine\SR_DrawInstancedPass.h" />
+    <ClInclude Include="Engine\SR_DrawPass.h" />
+    <ClInclude Include="Engine\SR_Effect.h" />
     <ClInclude Include="Engine\SR_Entity.h" />
+    <ClInclude Include="Engine\SR_UI.h" />
+    <ClInclude Include="Engine\SR_Executor.h" />
+    <ClInclude Include="Engine\SR_GameScene.h" />
+    <ClInclude Include="Engine\SR_Generator.h" />
+    <ClInclude Include="Engine\SR_GeometryShader.h" />
+    <ClInclude Include="Engine\SR_GeometryShaderParameterSet.h" />
+    <ClInclude Include="Engine\SR_GeometryShaderStage.h" />
+    <ClInclude Include="Engine\SR_Graphic.h" />
+    <ClInclude Include="Engine\SR_HullShader.h" />
+    <ClInclude Include="Engine\SR_HullShaderParameterSet.h" />
+    <ClInclude Include="Engine\SR_HullShaderStage.h" />
     <ClInclude Include="Engine\SR_Input.h" />
+    <ClInclude Include="Engine\SR_InputAssemblerStage.h" />
+    <ClInclude Include="Engine\SR_InputElement.h" />
+    <ClInclude Include="Engine\SR_InputParameterSet.h" />
     <ClInclude Include="Engine\SR_KeyCode.h" />
     <ClInclude Include="Engine\SR_Log.h" />
     <ClInclude Include="Engine\SR_Math.h" />
     <ClInclude Include="Engine\SR_Matrix3x2.h" />
     <ClInclude Include="Engine\SR_Matrix4x4.h" />
+    <ClInclude Include="Engine\SR_Matrix5x4.h" />
+    <ClInclude Include="Engine\SR_Mesh.h" />
     <ClInclude Include="Engine\SR_NonCopyable.h" />
+    <ClInclude Include="Engine\SR_OggSound.h" />
+    <ClInclude Include="Engine\SR_OutputMergerStage.h" />
+    <ClInclude Include="Engine\SR_CommonPass.h" />
+    <ClInclude Include="Engine\SR_PixelShader.h" />
+    <ClInclude Include="Engine\SR_PixelShaderParameterSet.h" />
+    <ClInclude Include="Engine\SR_PixelShaderStage.h" />
     <ClInclude Include="Engine\SR_Plane.h" />
     <ClInclude Include="Engine\SR_ProgramSettingXML.h" />
     <ClInclude Include="Engine\SR_Quaternion.h" />
+    <ClInclude Include="Engine\SR_RasterizerStage.h" />
     <ClInclude Include="Engine\SR_Ray.h" />
     <ClInclude Include="Engine\SR_Rectangle.h" />
+    <ClInclude Include="Engine\SR_RenderDescription.h" />
+    <ClInclude Include="Engine\SR_Renderer.h" />
+    <ClInclude Include="Engine\SR_RenderExecutor.h" />
+    <ClInclude Include="Engine\SR_RenderTask.h" />
+    <ClInclude Include="Engine\SR_RenderTechnique.h" />
+    <ClInclude Include="Engine\SR_ResourceGenerator.h" />
+    <ClInclude Include="Engine\SR_CommonSound.h" />
+    <ClInclude Include="Engine\SR_Scene.h" />
+    <ClInclude Include="Engine\SR_Sound.h" />
+    <ClInclude Include="Engine\SR_StreamOutputStage.h" />
+    <ClInclude Include="Engine\SR_StreamParameterSet.h" />
+    <ClInclude Include="Engine\SR_TargetStage.h" />
+    <ClInclude Include="Engine\SR_Task.h" />
     <ClInclude Include="Engine\SR_Time.h" />
+    <ClInclude Include="Engine\SR_Timer.h" />
     <ClInclude Include="Engine\SR_Transform.h" />
+    <ClInclude Include="Engine\SR_UIPass.h" />
+    <ClInclude Include="Engine\SR_UIRenderer.h" />
+    <ClInclude Include="Engine\SR_UITechnique.h" />
+    <ClInclude Include="Engine\SR_UITransform.h" />
+    <ClInclude Include="Engine\SR_UpdateExecutor.h" />
+    <ClInclude Include="Engine\SR_UpdateTask.h" />
     <ClInclude Include="Engine\SR_Vector2.h" />
     <ClInclude Include="Engine\SR_Vector3.h" />
     <ClInclude Include="Engine\SR_Vector4.h" />
+    <ClInclude Include="Engine\SR_VertexShader.h" />
+    <ClInclude Include="Engine\SR_VertexShaderParameterSet.h" />
+    <ClInclude Include="Engine\SR_VertexShaderStage.h" />
     <ClInclude Include="Engine\SR_Viewport.h" />
+    <ClInclude Include="Engine\SR_WavSound.h" />
     <ClInclude Include="Engine\SR_XML.h" />
+    <ClInclude Include="Example\BitmapPass.h" />
+    <ClInclude Include="Example\ColorEntity.h" />
+    <ClInclude Include="Example\ColorPass.h" />
+    <ClInclude Include="Example\ColorRenderingScene.h" />
+    <ClInclude Include="Example\CameraEntity.h" />
+    <ClInclude Include="Example\DefaultCamera.h" />
+    <ClInclude Include="Example\EmptyScene.h" />
+    <ClInclude Include="Example\LoadedScene.h" />
+    <ClInclude Include="Example\LoadingScene.h" />
+    <ClInclude Include="Example\UIRenderingScene.h" />
+    <ClInclude Include="SunrinEngine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Engine\SR_DirtyFlag.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shaders\color_render_ps.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Resources\Shaders\color_render_vs.hlsl">
+      <FileType>Document</FileType>
+    </None>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -135,8 +309,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath)</IncludePath>
-    <LibraryPath>Engine\ExternalLibrary;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2019.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2019.0\lib\vs2015\x86\debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>

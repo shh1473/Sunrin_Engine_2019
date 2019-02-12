@@ -8,18 +8,16 @@ namespace SunrinEngine
 	class SR_Ray
 	{
 	public:
-		constexpr explicit SR_Ray() noexcept;
-		constexpr explicit SR_Ray(
+		explicit SR_Ray() noexcept;
+		explicit SR_Ray(
 			float x, float y, float z,
 			float dx, float dy, float dz) noexcept;
-		constexpr explicit SR_Ray(
+		explicit SR_Ray(
 			const DirectX::XMFLOAT3 & position,
 			const DirectX::XMFLOAT3 & direction) noexcept;
 
-		constexpr SR_Ray(const SR_Ray & ray) noexcept;
-		constexpr SR_Ray(SR_Ray && ray) noexcept;
-
-		~SR_Ray() noexcept;
+		SR_Ray(const SR_Ray & ray) noexcept;
+		SR_Ray(SR_Ray && ray) noexcept;
 
 		bool operator==(const SR_Ray & ray) const;
 		bool operator!=(const SR_Ray & ray) const;

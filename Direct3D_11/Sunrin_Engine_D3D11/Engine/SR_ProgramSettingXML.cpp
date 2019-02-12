@@ -1,47 +1,44 @@
 #include "SR_PCH.h"
+
 #include "SR_ProgramSettingXML.h"
+#include "SR_Converter.h"
 
 namespace SunrinEngine
 {
 
 	SR_ProgramSettingXML::SR_ProgramSettingXML() noexcept :
-		m_isWindowed			{},
-		m_windowPositionX		{},
-		m_windowPositionY		{},
-		m_windowWidth			{},
-		m_windowHeight			{},
-		m_windowTitle			{},
-		m_isEnableVSync			{},
-		m_VSyncLevel			{},
-		m_adapterIndex			{},
+		m_isWindowed			{ true },
+		m_windowPositionX		{ 0 },
+		m_windowPositionY		{ 0 },
+		m_clientWidth			{ 0 },
+		m_clientHeight			{ 0 },
+		m_windowTitle			{ L"Unknown" },
+		m_isEnableVSync			{ false },
+		m_VSyncLevel			{ 0 },
 		m_window				{ nullptr, "Window" },
-		m_VSync					{ nullptr, "VSync" },
-		m_adapter				{ nullptr, "Adapter" }
+		m_VSync					{ nullptr, "VSync" }
 	{
 
 	}
 
 	void SR_ProgramSettingXML::Initialize()
 	{
-		Open("program_setting");
+		Open(L"program_setting.xml");
 
 		PushElement(&m_window);
 		PushElement(&m_VSync);
-		PushElement(&m_adapter);
 
 		Load();
 
 		m_isWindowed = m_window.first->BoolAttribute("windowed");
 		m_windowPositionX = m_window.first->UnsignedAttribute("x");
 		m_windowPositionY = m_window.first->UnsignedAttribute("y");
-		m_windowWidth = m_window.first->UnsignedAttribute("width");
-		m_windowHeight = m_window.first->UnsignedAttribute("height");
-		m_windowTitle = m_window.first->Attribute("title");
+		m_clientWidth = m_window.first->UnsignedAttribute("width");
+		m_clientHeight = m_window.first->UnsignedAttribute("height");
+		m_windowTitle = SR_Converter::ToUnicode(m_window.first->Attribute("title"));
 
 		m_isEnableVSync = m_VSync.first->BoolAttribute("enable");
 		m_VSyncLevel = m_VSync.first->UnsignedAttribute("level");
-
-		m_adapterIndex = m_adapter.first->UnsignedAttribute("index");
 	}
 
 	void SR_ProgramSettingXML::Save()
@@ -49,13 +46,11 @@ namespace SunrinEngine
 		m_window.first->SetAttribute("windowed", m_isWindowed);
 		m_window.first->SetAttribute("x", m_windowPositionX);
 		m_window.first->SetAttribute("y", m_windowPositionY);
-		m_window.first->SetAttribute("width", m_windowWidth);
-		m_window.first->SetAttribute("height", m_windowHeight);
+		m_window.first->SetAttribute("width", m_clientWidth);
+		m_window.first->SetAttribute("height", m_clientHeight);
 
 		m_VSync.first->SetAttribute("enable", m_isEnableVSync);
 		m_VSync.first->SetAttribute("level", m_VSyncLevel);
-
-		m_adapter.first->SetAttribute("index", m_adapterIndex);
 
 		Apply();
 	}

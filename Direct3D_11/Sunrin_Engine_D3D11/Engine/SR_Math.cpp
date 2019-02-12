@@ -8,7 +8,7 @@ namespace SunrinEngine
 	const float SR_Math::M_DegToRad	{ 0.0174533f };
 	const float SR_Math::M_RadToDeg	{ 57.2957795f };
 
-	SR_Math::SR_Math()
+	SR_Math::SR_Math() noexcept
 	{
 
 	}

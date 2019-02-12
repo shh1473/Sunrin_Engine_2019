@@ -4,9 +4,14 @@
 namespace SunrinEngine
 {
 
-	SR_Component::SR_Component() noexcept :
+	SR_Component::SR_Component(SR_Entity * owner) noexcept :
 		m_isActivate	{ true },
-		m_owner			{ nullptr }
+		m_owner			{ owner }
+	{
+
+	}
+
+	SR_Component::~SR_Component() noexcept
 	{
 
 	}
