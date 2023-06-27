@@ -608,7 +608,7 @@ namespace SunrinEngine
 
 		DirectX::XMStoreFloat4x4(
 			&mat4x4.m_float4x4,
-			std::move(DirectX::XMMatrixTranspose(
+			std::move(DirectX::XMMatrixInverse(
 				std::move(DirectX::XMLoadFloat4x4(&m_float4x4)))));
 
 		return std::move(mat4x4);
@@ -620,7 +620,7 @@ namespace SunrinEngine
 
 		DirectX::XMStoreFloat4x4(
 			&mat4x4.m_float4x4,
-			std::move(DirectX::XMMatrixInverse(
+			std::move(DirectX::XMMatrixTranspose(
 				nullptr,
 				std::move(DirectX::XMLoadFloat4x4(&m_float4x4)))));
 
